@@ -1,0 +1,29 @@
+.sign__input {
+    box-sizing: border-box;
+    cursor: text;
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    color: #fff;
+    border: none;
+    border-bottom: 2px solid #cccccc;
+    background-color: transparent;
+    padding: 0 4px;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+  
+  .sign__input:first-of-type {
+    margin-top: 36px;
+  }
+  
+  .sign__input::placeholder {
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  
+  .sign__input:focus {
+    outline: none;
+  }

@@ -1,0 +1,14 @@
+.header__sign-link {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #fff;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    text-decoration: none;
+    padding-bottom: 3%;
+  }
+  
+  .header__sign-link:hover {
+    opacity: 0.6;
+  }

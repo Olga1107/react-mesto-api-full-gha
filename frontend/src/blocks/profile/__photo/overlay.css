@@ -1,0 +1,27 @@
+.overlay {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.overlay::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.overlay:hover::after {
+    opacity: 1;
+    cursor: pointer;
+    background-image: url(../../../images/pencil.svg);
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity .4s ease-in-out;
+}

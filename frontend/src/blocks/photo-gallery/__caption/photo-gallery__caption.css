@@ -1,0 +1,5 @@
+.photo-gallery__caption {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 15px 26px 21px;
+}

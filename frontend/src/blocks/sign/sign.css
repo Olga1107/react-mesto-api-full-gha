@@ -1,0 +1,8 @@
+.sign {
+    margin: 60px auto 0;
+    max-width: 358px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 112px;
+  }
