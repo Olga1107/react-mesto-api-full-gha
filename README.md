@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.201.140.130
+IP-адрес <84.201.140.130>
 
 Frontend https://domainname.helga.nomoreparties.sbs
 
