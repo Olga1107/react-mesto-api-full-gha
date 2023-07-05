@@ -15,7 +15,7 @@ const handleError = require('./middlewares/handleError');
 const usersRout = require('./routes/users');
 const cardsRout = require('./routes/cards');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 
 app.use(helmet());

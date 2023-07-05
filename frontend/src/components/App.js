@@ -49,7 +49,7 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            setUserData(res.data.email);
+            setUserData(res.user.email);
             navigate("/", { replace: true });
           } else {
             setDataInfoTool({
@@ -72,6 +72,7 @@ function App() {
       .catch((err) => {
         console.log(`Ошибка: ${err}`);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function handleCardLike(card) {

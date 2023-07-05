@@ -1,7 +1,7 @@
 export default class Api {
-  constructor(settings) {
-    this._url = settings.url;
-    this._headers = settings.headers;
+  constructor({url, headers}) {
+    this._url = url;
+    this._headers = headers;
   }
 
   //Проверка данных
@@ -16,7 +16,10 @@ export default class Api {
   getUserInfo() {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
-      headers: this._headers
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      }
     })
       .then(res => this._check(res))
   }
@@ -25,7 +28,10 @@ export default class Api {
   setUserInfo(userData) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: userData.name,
         about: userData.about
@@ -38,7 +44,10 @@ export default class Api {
   setUserAvatar(userData) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         avatar: userData
       })
@@ -50,7 +59,10 @@ export default class Api {
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
-      headers: this._headers
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      }
     })
       .then(res => this._check(res))
   }
@@ -59,7 +71,10 @@ export default class Api {
   addCards(cardData) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: cardData.name,
         link: cardData.link
@@ -73,7 +88,10 @@ export default class Api {
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
     })
       .then(res => this._check(res))
   }
@@ -82,7 +100,10 @@ export default class Api {
   putLike(cardId) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
     })
       .then(res => this._check(res))
   }
@@ -91,20 +112,25 @@ export default class Api {
   deleteLike(cardId) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
     })
       .then(res => this._check(res))
   }
 
   changeLikeCardStatus(cardId, isLiked) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: isLiked ? "PUT" : "DELETE",
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
     }).then((res) => this._check(res));
   }
 
 }
-
 
 export const api = new Api({
   url: 'https://api.domainname.helga.nomoreparties.sbs',
