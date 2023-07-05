@@ -1,4 +1,4 @@
-const url = "https://auth.nomoreparties.co";
+const url = "https://api.domainname.helga.nomoreparties.sbs";
 export const register = (email, password) =>
   fetch(`${url}/signup`, {
     method: "POST",

@@ -107,9 +107,8 @@ export default class Api {
 
 
 export const api = new Api({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-50',
+  url: 'https://api.domainname.helga.nomoreparties.sbs',
   headers: {
-    authorization: "fa8b7030-628c-4c20-88d8-1bf7f45e43a9",
     'Content-Type': 'application/json'
   }
 })
