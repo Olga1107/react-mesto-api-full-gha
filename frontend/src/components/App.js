@@ -39,15 +39,18 @@ function App() {
   });
   const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState("");
+  const [isTokenChecked, setIsTokenChecked] = useState(false);
+
   const navigate = useNavigate();
 
   function tokenCheck() {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
+    const token = localStorage.getItem('token');
+    if (token) {
       authApi
-        .checkToken(jwt)
+        .checkToken(token)
         .then((res) => {
           if (res) {
+            setIsTokenChecked(true);
             setLoggedIn(true);
             setUserData(res.user.email);
             navigate("/", { replace: true });
@@ -66,7 +69,7 @@ function App() {
     tokenCheck();
     Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([users, cardData]) => {
-        setCurrentUser(users)
+        setCurrentUser(users.user);
         setCards(cardData);
       })
       .catch((err) => {
