@@ -1,5 +1,6 @@
 const allowedCors = [
   'http://domainname.helga.nomoreparties.sbs',
+  'https://domainname.helga.nomoreparties.sbs',
 ];
 
 const cors = (req, res, next) => {
